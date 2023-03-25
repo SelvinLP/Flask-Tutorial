@@ -1,0 +1,22 @@
+<!DOCTYPE html5>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Editar usuario</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<div class="container">
+		<h1>Editar usuario</h1>
+		<form method="POST">
+			<label for="name">Nombre:</label>
+			<input type="text" id="name" name="name" value="{{ user['name'] }}">
+			<label for="email">Correo electrónico:</label>
+			<input type="email" id="email" name="email" value="{{ user['email'] }}">
+			<input type="submit" value="Guardar cambios">
+		</form>
+		<button class="cancelar" onclick="location.href='{{ url_for('index')}}'">Cancelar</button>
+	</div>
+</body>
+</html>

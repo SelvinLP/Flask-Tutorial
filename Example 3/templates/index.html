@@ -1,0 +1,38 @@
+<!DOCTYPE html5>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de usuarios</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user['id'] }}</td>
+                        <td>{{ user['name'] }}</td>
+                        <td>{{ user['email'] }}</td>
+                        <td>
+                            <button class="editar" onclick="location.href='{{ url_for('edit', id=user['id']) }}'">Editar</button>
+                            <button class="eliminar" onclick="if(confirm('¿Estás seguro de eliminar este usuario?')){ location.href='{{ url_for('delete', id=user['id']) }}'; }">Eliminar</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button class="agregar" onclick="location.href='{{ url_for('add')}}'">Agregar</button>
+    </div>
+</body>
+</html>

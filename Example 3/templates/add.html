@@ -1,0 +1,22 @@
+<!DOCTYPE html5>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Agregar usuario</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<div class="container">
+		<h1>Agregar usuario</h1>
+		<form method="POST">
+			<label for="name">Nombre:</label>
+			<input type="text" id="name" name="name" placeholder="Ingrese su nombre" required>
+			<label for="email">Correo electrónico:</label>
+			<input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico" required>
+			<input type="submit" value="Agregar usuario">
+		</form>
+		<button class="cancelar" onclick="location.href='{{ url_for('index')}}'">Cancelar</button>
+	</div>
+</body>
+</html>
